@@ -1,0 +1,277 @@
+Everything starts from here
+Checking the command line = [Ljava.lang.String;@d716361
+CIVL v1.7 of 2016-03-31 -- http://vsl.cis.udel.edu/civl
+definedOptions = [-DKEY=VALUE
+    macro definitions: <macro> or <macro>=<object>, -_CIVL or -_CIVL=BOOLEAN (default: true)
+    Define _CIVL macro?, -analyze_abs or -analyze_abs=BOOLEAN (default: false)
+    analyze abs calls? false by default, -ast or -ast=BOOLEAN (default: false)
+    print the AST of the program, -checkDivisionByZero or -checkDivisionByZero=BOOLEAN (default: true)
+    check division-by-zero?, -checkMemoryLeak or -checkMemoryLeak=BOOLEAN (default: true)
+    check memory-leak errors?, -collectHeaps or -collectHeaps=BOOLEAN (default: true)
+    collect heaps?, -collectOutput or -collectOutput=BOOLEAN (default: false)
+    collect output?, -collectProcesses or -collectProcesses=BOOLEAN (default: true)
+    collect processes?, -collectScopes or -collectScopes=BOOLEAN (default: true)
+    collect dyscopes?, -deadlock=STRING (default: absolute)
+    deadlock kind? (potential|absolute|none), -debug or -debug=BOOLEAN (default: false)
+    debug mode: print very detailed information, -enablePrintf or -enablePrintf=BOOLEAN (default: true)
+    enable printf function, -errorBound=INTEGER (default: 1)
+    stop after finding this many errors, -errorStateEquiv=STRING (default: LOC)
+    semantics for equivalent error states: (LOC|CALLSTACK|FULL), -gui or -gui=BOOLEAN (default: false)
+    launch GUI? (under development, only works with replay), -guided or -guided=BOOLEAN
+    user guided simulation; applies only to run, ignored
+    for all other commands, -id=INTEGER (default: 0)
+    ID number of trace to replay; applies only to replay command, -inputKEY=VALUE
+    initialize input variable KEY to VALUE; applies only to run and verify, -link=STRING
+    link a source file with the target program, -maxdepth=INTEGER (default: 2147483647)
+    bound on search depth, -min or -min=BOOLEAN (default: false)
+    search for minimal counterexample, -mpiContract or -mpiContract=BOOLEAN (default: false)
+    enable contracts for MPI mode, -ompLoopDecomp=STRING (default: ROUND_ROBIN)
+    loop decomposition strategy? (ALL|ROUND_ROBIN|RANDOM), -ompNoSimplify or -ompNoSimplify=BOOLEAN (default: false)
+    don't simplify omp pragmas, -preproc or -preproc=BOOLEAN (default: false)
+    show the preprocessing result?, -procBound=INTEGER (default: -1)
+    bound on number of live processes (no bound if negative), -quiet or -quiet=BOOLEAN (default: false)
+    ignore output?, -random or -random=BOOLEAN
+    select enabled transitions randomly; default for run,
+    ignored for all other commands, -saveStates or -saveStates=BOOLEAN (default: true)
+    save states during depth-first search, -seed=INTEGER
+    set the random seed; applies only to run, -showAmpleSet or -showAmpleSet=BOOLEAN (default: false)
+    print the ample set when it contains more than one processes, -showAmpleSetWtStates or -showAmpleSetWtStates=BOOLEAN (default: false)
+    print ample set and state when ample set contains >1 processes, -showInputs or -showInputs=BOOLEAN (default: false)
+    show input variables of my program?, -showMemoryUnits or -showMemoryUnits=BOOLEAN (default: false)
+    print the impact/reachable memory units when the state contains more than one processes, -showModel or -showModel=BOOLEAN (default: false)
+    print the model, -showPathCondition or -showPathCondition=BOOLEAN (default: false)
+    show the path condition of each state?, -showProgram or -showProgram=BOOLEAN (default: false)
+    show my program after transformations?, -showProverQueries or -showProverQueries=BOOLEAN (default: false)
+    print theorem prover queries only, -showQueries or -showQueries=BOOLEAN (default: false)
+    print all queries, -showSavedStates or -showSavedStates=BOOLEAN (default: false)
+    print saved states only, -showStates or -showStates=BOOLEAN (default: false)
+    print all states, -showTime or -showTime=BOOLEAN (default: false)
+    print timings, -showTransitions or -showTransitions=BOOLEAN (default: false)
+    print transitions, -showUnreached or -showUnreached=BOOLEAN (default: false)
+    print the unreachable code, -simplify or -simplify=BOOLEAN (default: true)
+    simplify states?, -solve or -solve=BOOLEAN (default: false)
+    try to solve for concrete counterexample, -statelessPrintf or -statelessPrintf=BOOLEAN (default: true)
+    prevent printf function modifying the file system, -strict or -strict=BOOLEAN (default: true)
+    check strict functional equivalence?, -svcomp16 or -svcomp16=BOOLEAN (default: false)
+    translate program for sv-comp 2016?, -sysIncludePath=STRING
+    set the system include path, using : to separate multiple paths, -timeout=INTEGER (default: -1)
+    time out in seconds, default is never time out, -trace=STRING
+    filename of trace to replay, -unpreproc or -unpreproc=BOOLEAN (default: false)
+    unpreprocess the source?, -userIncludePath=STRING
+    set the user include path, using : to separate multiple paths, -verbose or -verbose=BOOLEAN (default: false)
+    verbose mode, -web or -web=BOOLEAN (default: false)
+    write output for web app?]
+===================The CIVL model is:===================
+Model adderBad
+Function := main()
+**************************************************
+ | function main
+ | | formal parameters
+ | | scope 0 (parent: null)
+ | | | _heap : __heap__
+ | | | _atomic_lock_var : $proc
+ | | | _X_count_var : int
+ | | | _Y_count_var : int
+ | | | $input B : int
+ | | | $input N : int
+ | | | $input a : $real[N]
+ | | | scope 5 (parent: 0)
+ | | | | _heap : __heap__
+ | | | | seq : $real
+ | | | | par : $real
+ | | locations (start=0)
+ | | | location 0 (scope: 0)
+ | | | | when (true) B = 5 @ adderBad.cvl:8.0-16 "$input int B = 5" ; goto location 1
+ | | | location 1 (scope: 0)
+ | | | | when (true) N = InitialValue(N) @ adderBad.cvl:9.0-12 "$input int N" ; goto location 2
+ | | | location 2 (scope: 0)
+ | | | | when (guard[civlc.$assume()]) $assume(((0<=N)&&(N<=B))) @ adderBad.cvl:10.0-21 "$assume(0<=N && N ... )" ; goto location 3
+ | | | location 3 (scope: 0)
+ | | | | when (true) a = InitialValue(a) @ adderBad.cvl:11.0-18 "$input double a[N]" ; goto location 4
+ | | | location 4 (scope: 5)
+ | | | | when (true) seq = adderSeq(&((a)[0]), N) @ adderBad.cvl:40.2-33 "double seq = adderSeq(& ... )" ; goto location 5
+ | | | location 5 (scope: 5)
+ | | | | when (true) par = adderPar(&((a)[0]), N) @ adderBad.cvl:41.2-33 "double par = adderPar(& ... )" ; goto location 6
+ | | | location 6 (scope: 5)
+ | | | | when (guard[civlc.$assert()]) $assert((seq==par)) @ adderBad.cvl:43.2-21 "$assert(seq == par)" ; goto location 7
+ | | | location 7 (scope: 0)
+ | | | | when (true) return (main) @ adderBad.cvl:44.0-1 "}" ;
+**************************************************
+Function := $assert : system function
+**************************************************
+ | function $assert
+ | | formal parameters
+ | | | expr
+ | | scope 1 (parent: 0)
+ | | | _heap : __heap__
+ | | | expr : $bool
+**************************************************
+Function := $assume : system function
+**************************************************
+ | function $assume
+ | | formal parameters
+ | | | expr
+ | | scope 2 (parent: 0)
+ | | | _heap : __heap__
+ | | | expr : $bool
+**************************************************
+Function := adderSeq(p : ($real)*,n : int)
+**************************************************
+ | function adderSeq
+ | | formal parameters
+ | | | p
+ | | | n
+ | | scope 3 (parent: 0)
+ | | | _heap : __heap__
+ | | | p : ($real)*
+ | | | n : int
+ | | | scope 6 (parent: 3)
+ | | | | _heap : __heap__
+ | | | | s : $real
+ | | | | scope 7 (parent: 6)
+ | | | | | _heap : __heap__
+ | | | | | i : int
+ | | locations (start=8)
+ | | | location 8 (scope: 6)
+ | | | | when (true) s = 0.0 @ adderBad.cvl:14.2-16 "double s = 0.0" ; goto location 9
+ | | | location 9 (scope: 7)
+ | | | | when (true) i = 0 @ adderBad.cvl:16.7-16 "int i = 0" ; goto location 10
+ | | | location 10 (scope: 7)
+ | | | | when ((i<n)) LOOP_BODY_ENTER @ adderBad.cvl:16.18-23 "i < n" ; goto location 11
+ | | | | when (!((i<n))) LOOP_BODY_EXIT @ adderBad.cvl:16.18-23 "i < n" ; goto location 13
+ | | | location 11 (scope: 7)
+ | | | | when (true) s = (s+*((p+i))) @ adderBad.cvl:17.4-13 "s += p[i]" ; goto location 12
+ | | | location 12 (scope: 7)
+ | | | | when (true) i = (i+1) @ adderBad.cvl:16.25-28 "i++" ; goto location 10
+ | | | location 13 (scope: 6)
+ | | | | when (true) return s (adderSeq) @ adderBad.cvl:19.2-11 "return s;" ;
+**************************************************
+Function := adderPar(p : ($real)*,n : int)
+**************************************************
+ | function adderPar
+ | | formal parameters
+ | | | p
+ | | | n
+ | | scope 4 (parent: 0)
+ | | | _heap : __heap__
+ | | | p : ($real)*
+ | | | n : int
+ | | | scope 8 (parent: 4)
+ | | | | _heap : __heap__
+ | | | | s : $real
+ | | | | _dom_size0 : int
+ | | | | _par_procs0 : $proc[_dom_size0]
+ | | | | scope 10 (parent: 8)
+ | | | | | _heap : __heap__
+ | | | | | i : int
+ | | locations (start=14)
+ | | | location 14 (scope: 8)
+ | | | | when (true) s = 0.0 @ adderBad.cvl:23.2-16 "double s = 0.0" ; goto location 15
+ | | | location 15 (scope: 8)
+ | | | | when (true) $elaborate_domain({0..(n-1)#1}) @ adderBad.cvl:34.18-26 "0 .. n-1" ; goto location 16
+ | | | location 16 (scope: 8)
+ | | | | when (true) CIVL_PAR_FOR_ENTER: $spawn _par_proc0() : {0..(n-1)#1} @ adderBad.cvl:34.2-9 "$parfor" ; goto location 17
+ | | | location 17 (scope: 8)
+ | | | | when (guard[civlc.$waitall()]) $waitall(&((_par_procs0)[0]), _dom_size0) @ adderBad.cvl:35.13-14 ";" ; goto location 18
+ | | | location 18 (scope: 8)
+ | | | | when (true) return s (adderPar) @ adderBad.cvl:36.2-11 "return s;" ;
+**************************************************
+Function := worker(i : int)
+**************************************************
+ | function worker
+ | | formal parameters
+ | | | i
+ | | scope 9 (parent: 8)
+ | | | _heap : __heap__
+ | | | i : int
+ | | | scope 14 (parent: 9)
+ | | | | _heap : __heap__
+ | | | | t : $real
+ | | locations (start=19)
+ | | | location 19 (scope: 14)
+ | | | | when (true) t = s @ adderBad.cvl:29.4-9 "t = s" ; goto location 20
+ | | | location 20 (scope: 14)
+ | | | | when (true) t = (t+*((p+i))) @ adderBad.cvl:30.4-13 "t += p[i]" ; goto location 21
+ | | | location 21 (scope: 14)
+ | | | | when (true) s = t @ adderBad.cvl:31.4-9 "s = t" ; goto location 22
+ | | | location 22 (scope: 9)
+ | | | | when (true) return (worker) @ adderBad.cvl:32.2-3 "}" ;
+**************************************************
+Function := _par_proc0(i : int)
+**************************************************
+ | function _par_proc0
+ | | formal parameters
+ | | | i
+ | | scope 11 (parent: 8)
+ | | | _heap : __heap__
+ | | | i : int
+ | | locations (start=23)
+ | | | location 23 (scope: 11)
+ | | | | when (true) worker(i) @ adderBad.cvl:35.4-13 "worker(i)" ; goto location 24
+ | | | location 24 (scope: 11)
+ | | | | when (true) return (_par_proc0) @ adderBad.cvl:35.12-13 ")" ;
+**************************************************
+Function := $waitall : system function
+**************************************************
+ | function $waitall
+ | | formal parameters
+ | | | procs
+ | | | num
+ | | scope 13 (parent: 0)
+ | | | _heap : __heap__
+ | | | procs : ($proc)*
+ | | | num : int
+**************************************************
+Count = 8
+
+Model = edu.udel.cis.vsl.civl.model.common.CommonModel@52af26ee
+1. Curr_Bound = 0
+
+After assigning the nextStack = 418
+2. New_Bound = 1
+
+2. NextStack-Size = 0
+
+depthBound = 2147483647
+
+Violation 0 encountered at depth 411:
+CIVL execution violation in p0(id=0) (kind: ASSERTION_VIOLATION, certainty: PROVEABLE)
+at adderBad.cvl:43.2-21 "$assert(seq == par)":
+
+Assertion: (seq==par)
+        -> X_a[1]+X_a[0]==X_a[1]
+        -> (X_a[1]+X_a[0])==X_a[1]
+        -> 0==X_a[0]
+
+Input:
+  B=5
+  N=2
+  a=X_a
+Context:
+  true
+Call stacks:
+process p0 (id=0):
+  main at adderBad.cvl:43.2-9 "$assert"
+
+Logging new entry 0, writing trace to CIVLREP/adderBad_0.trace
+Terminating search after finding 1 violation.
+
+=== Command ===
+civl verify -showModel examples/concurrency/adderBad.cvl 
+
+=== Stats ===
+   time (s)            : 5.99
+   memory (bytes)      : 28803072
+   max process count   : 6
+   states              : 949
+   states saved        : 493
+   state matches       : 558
+   transitions         : 1496
+   trace steps         : 1050
+   valid calls         : 9641
+   provers             : z3, cvc3
+   prover calls        : 22
+
+=== Result ===
+The program MAY NOT be correct.  See CIVLREP/adderBad_log.txt
+Everything ends in here

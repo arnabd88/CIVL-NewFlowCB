@@ -1,0 +1,42 @@
+ABC v0.2 of 31-mar-2014 -- http://vsl.cis.udel.edu/abc
+
+Error: Unknown command line option: -h
+
+Usage: abc [options] filename0 filename1 ...
+Options:
+-I <path>
+  add path to system include list
+-iquote <path>
+  add path to user include list
+-D<macro> or -D<macro>=<object>
+  define a macro for compilation
+-o <filename>
+  send output to filename
+-E
+  preprocess only
+-v
+  verbose mode, show all processing steps
+-p
+  pretty print programs in original language (default)
+-a
+  print the AST(s) using a hierarchical representation
+-t
+  show symbol and type tables
+-time
+  show time for each phase
+-diff
+  show the difference of two ASTs
+-svcomp
+  turn on special setting for svcomp benchmarks
+-gnuc
+  support GNU C features
+-unknownFunc  print functions that are used in the program but no definition is given
+-lang=[c|civlc]
+  set language (default determined by file suffix)
+-arch=[i386|amd64|unknown]
+  set the architecture, unknown by default
+-sef
+  transforms program to side-effect-free form
+-prune
+  removes unreachable objects from the AST
+

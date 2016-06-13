@@ -1,0 +1,58 @@
+Session name....... adderBad
+Directory.......... CIVLREP
+Date............... Mon Jun 13 12:57:01 MDT 2016
+Trace ID........... 0
+Violation number....... 0
+
+== Begin Violation Message == 
+Violation 0[length=37, file=CIVLREP/adderBad_0.trace]:
+CIVL execution violation in p0(id=0) (kind: ASSERTION_VIOLATION, certainty: PROVEABLE)
+at adderBad.cvl:43.2-21 "$assert(seq == par)":
+
+Assertion: (seq==par)
+        -> X_a[1]+X_a[2]+X_a[3]+X_a[4]+X_a[0]==X_a[1]+X_a[2]+X_a[4]+X_a[0]
+        -> (X_a[1]+X_a[2]+X_a[3]+X_a[4]+X_a[0])==(X_a[1]+X_a[2]+X_a[4]+X_a[0])
+        -> 0==X_a[3]
+
+Input:
+  B=5
+  N=5
+  a=X_a
+Context:
+  true
+Call stacks:
+process p0 (id=0):
+  main at adderBad.cvl:43.2-9 "$assert"
+
+== End Violation Message == 
+
+== Begin Configuration ==
+examples/concurrency/adderBad.cvl
+== End Configuration ==
+
+== Begin Trace ==
+LENGTH = 37
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+== End Trace ==

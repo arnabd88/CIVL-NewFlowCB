@@ -1,0 +1,20 @@
+[EMMA v2.0.5312 report, generated Sat May 07 16:13:18 MDT 2016]
+-------------------------------------------------------------------------------
+OVERALL COVERAGE SUMMARY:
+
+[class, %]	[method, %]	[block, %]	[line, %]	[name]
+0%   (0/1)!	0%   (0/2)!	0%   (0/36)!	0%   (0/8)!	all classes
+
+OVERALL STATS SUMMARY:
+
+total packages:	1
+total classes:	1
+total methods:	2
+total executable files:	1
+total executable lines:	8
+
+COVERAGE BREAKDOWN BY PACKAGE:
+
+[class, %]	[method, %]	[block, %]	[line, %]	[name]
+0%   (0/1)!	0%   (0/2)!	0%   (0/36)!	0%   (0/8)!	edu.udel.cis.vsl.civl
+-------------------------------------------------------------------------------

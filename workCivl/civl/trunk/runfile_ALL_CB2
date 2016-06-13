@@ -1,0 +1,34 @@
+mkdir -p WCIVL_ALL_CB2_LOGS
+
+wcivl verify examples/concurrency/wildcardBad.c          >   WCIVL_ALL_CB2_LOGS/wildcardBad_log   &
+wcivl verify examples/concurrency/spawnBad.cvl           >   WCIVL_ALL_CB2_LOGS/spawnBad_log   &
+wcivl verify examples/concurrency/readerWriter.cvl       >   WCIVL_ALL_CB2_LOGS/readerWriter_log   &
+wcivl verify examples/concurrency/blockAdderBad.cvl      >   WCIVL_ALL_CB2_LOGS/blockAdderBad_log   &
+wcivl verify examples/concurrency/boundedBuffer.cvl      >   WCIVL_ALL_CB2_LOGS/boundedBuffer_log   &
+wcivl verify examples/concurrency/spawn2.cvl             >   WCIVL_ALL_CB2_LOGS/spawn2_log   &
+wcivl verify examples/concurrency/bank.cvl               >   WCIVL_ALL_CB2_LOGS/bank_log   &
+wcivl verify examples/concurrency/adder.cvl              >   WCIVL_ALL_CB2_LOGS/adder_log   &
+wcivl verify examples/concurrency/hybrid.cvl             >   WCIVL_ALL_CB2_LOGS/hybrid_log   &
+wcivl verify examples/concurrency/boundedBuffer_bad.cvl  >   WCIVL_ALL_CB2_LOGS/boundedBuffer_bad_log   &
+wcivl verify examples/concurrency/locksGood.cvl          >   WCIVL_ALL_CB2_LOGS/locksGood_log   &
+wcivl verify examples/concurrency/barrier.cvl            >   WCIVL_ALL_CB2_LOGS/barrier_log   &
+wcivl verify examples/concurrency/mpi-pthreads.cvl       >   WCIVL_ALL_CB2_LOGS/mpi-pthreads_log   &
+wcivl verify examples/concurrency/barrierBad.cvl         >   WCIVL_ALL_CB2_LOGS/barrierBad_log   &
+wcivl verify examples/concurrency/dlqueue.cvl            >   WCIVL_ALL_CB2_LOGS/dlqueue_log   &
+wcivl verify examples/concurrency/dining.cvl             >   WCIVL_ALL_CB2_LOGS/dining_log   &
+wcivl verify examples/concurrency/diningBad.cvl          >   WCIVL_ALL_CB2_LOGS/diningBad_log   &
+wcivl verify examples/concurrency/barrier2.cvl           >   WCIVL_ALL_CB2_LOGS/barrier2_log   &
+wcivl verify examples/concurrency/two_lock_queue.cvl     >   WCIVL_ALL_CB2_LOGS/two_lock_queue_log   &
+wcivl verify examples/concurrency/locksBad.cvl           >   WCIVL_ALL_CB2_LOGS/locksBad_log   &
+wcivl verify examples/concurrency/locksBad10.cvl         >   WCIVL_ALL_CB2_LOGS/locksBad10_log   &
+wcivl verify examples/concurrency/exitBarrier.cvl        >   WCIVL_ALL_CB2_LOGS/exitBarrier_log   &
+wcivl verify examples/concurrency/wildcard.cvl           >   WCIVL_ALL_CB2_LOGS/wildcard_log   &
+wcivl verify examples/concurrency/spawn.cvl              >   WCIVL_ALL_CB2_LOGS/spawn_log   &
+wcivl verify examples/concurrency/ring2Bad.cvl           >   WCIVL_ALL_CB2_LOGS/ring2Bad_log   &
+wcivl verify examples/concurrency/adderBad.cvl           >   WCIVL_ALL_CB2_LOGS/adderBad_log   &
+wcivl verify examples/concurrency/blockAdder.cvl         >   WCIVL_ALL_CB2_LOGS/blockAdder_log   &
+
+
+
+
+
