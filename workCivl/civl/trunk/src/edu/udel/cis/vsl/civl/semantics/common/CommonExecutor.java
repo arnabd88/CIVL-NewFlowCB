@@ -1543,6 +1543,7 @@ public class CommonExecutor implements Executor {
 		if(transition.getContextSwitch()) {
 		   state.setNswitch(lastState_nswitch+1);
 		}
+		else state.setNswitch(lastState_nswitch);
 		return state;
 	}
 
